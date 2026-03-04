@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ip_address",
+    "type": "text",
+    "label": {
+      "en": "IP Address"
+    },
+    "value": "192.168.1.130",
+    "hint": {
+      "en": "The local IP address of your Fresh-R Compac unit"
+    }
+  },
+  {
+    "id": "poll_interval",
+    "type": "number",
+    "label": {
+      "en": "Poll Interval (seconds)"
+    },
+    "value": 30,
+    "min": 10,
+    "max": 300,
+    "hint": {
+      "en": "How often to fetch data from the device (10-300 seconds)"
+    }
+  }
+]

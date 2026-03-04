@@ -1,0 +1,253 @@
+{
+  "id": "com.freshr.compac",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "Fresh-R Compac"
+  },
+  "description": {
+    "en": "Control and monitor your Fresh-R Compac ventilation unit"
+  },
+  "brandColor": "#1e6fbd",
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Sven Langenhuisen"
+  },
+  "capabilities": {
+    "ventilation_mode": {
+      "type": "enum",
+      "title": { "en": "Ventilation Mode" },
+      "icon": "/assets/capability_icons/fan.svg",
+      "values": [
+        { "id": "0",  "title": { "en": "Off" } },
+        { "id": "1",  "title": { "en": "Level 1" } },
+        { "id": "2",  "title": { "en": "Level 2" } },
+        { "id": "3",  "title": { "en": "Level 3" } },
+        { "id": "8",  "title": { "en": "Auto" } }
+      ],
+      "getable": true,
+      "setable": false
+    },
+    "measure_temperature_t1": {
+      "type": "number",
+      "title": { "en": "Temperature T1 (indoor)" },
+      "icon": "/assets/capability_icons/thermometer.svg",
+      "units": { "en": "°C" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_temperature_t2": {
+      "type": "number",
+      "title": { "en": "Temperature T2 (exhaust)" },
+      "icon": "/assets/capability_icons/thermometer.svg",
+      "units": { "en": "°C" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_temperature_t3": {
+      "type": "number",
+      "title": { "en": "Temperature T3" },
+      "icon": "/assets/capability_icons/thermometer.svg",
+      "units": { "en": "°C" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_temperature_t4": {
+      "type": "number",
+      "title": { "en": "Temperature T4 (outdoor)" },
+      "icon": "/assets/capability_icons/thermometer.svg",
+      "units": { "en": "°C" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_temperature_supply": {
+      "type": "number",
+      "title": { "en": "Supply Air Temperature" },
+      "icon": "/assets/capability_icons/thermometer.svg",
+      "units": { "en": "°C" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_dewpoint": {
+      "type": "number",
+      "title": { "en": "Dew Point" },
+      "icon": "/assets/capability_icons/dewpoint.svg",
+      "units": { "en": "°C" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_fan1_pwm": {
+      "type": "number",
+      "title": { "en": "Fan 1 Speed (PWM)" },
+      "icon": "/assets/capability_icons/fan.svg",
+      "units": { "en": "%" },
+      "decimals": 1,
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_fan2_pwm": {
+      "type": "number",
+      "title": { "en": "Fan 2 Speed (PWM)" },
+      "icon": "/assets/capability_icons/fan.svg",
+      "units": { "en": "%" },
+      "decimals": 1,
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_fan1_rpm": {
+      "type": "number",
+      "title": { "en": "Fan 1 Speed (RPM)" },
+      "icon": "/assets/capability_icons/fan.svg",
+      "units": { "en": "rpm" },
+      "decimals": 0,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_fan2_rpm": {
+      "type": "number",
+      "title": { "en": "Fan 2 Speed (RPM)" },
+      "icon": "/assets/capability_icons/fan.svg",
+      "units": { "en": "rpm" },
+      "decimals": 0,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_heater_temp_in": {
+      "type": "number",
+      "title": { "en": "Heater Temperature In" },
+      "icon": "/assets/capability_icons/heater.svg",
+      "units": { "en": "°C" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_heater_temp_out": {
+      "type": "number",
+      "title": { "en": "Heater Temperature Out" },
+      "icon": "/assets/capability_icons/heater.svg",
+      "units": { "en": "°C" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_heater_power": {
+      "type": "number",
+      "title": { "en": "Heater Power" },
+      "icon": "/assets/capability_icons/heater.svg",
+      "units": { "en": "W" },
+      "decimals": 0,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    }
+  },
+  "drivers": [
+    {
+      "id": "freshr-compac",
+      "name": {
+        "en": "Fresh-R Compac"
+      },
+      "images": {
+        "large": "/drivers/freshr-compac/assets/images/large.png",
+        "small": "/drivers/freshr-compac/assets/images/small.png"
+      },
+      "icon": "/drivers/freshr-compac/assets/icon.svg",
+      "class": "fan",
+      "capabilities": [
+        "ventilation_mode",
+        "measure_co2",
+        "measure_humidity",
+        "measure_temperature_supply",
+        "measure_temperature_t1",
+        "measure_temperature_t2",
+        "measure_temperature_t3",
+        "measure_temperature_t4",
+        "measure_dewpoint",
+        "measure_fan1_rpm",
+        "measure_fan2_rpm",
+        "measure_fan1_pwm",
+        "measure_fan2_pwm",
+        "measure_heater_temp_in",
+        "measure_heater_temp_out",
+        "measure_heater_power"
+      ],
+      "settings": [
+        {
+          "id": "ip_address",
+          "type": "text",
+          "label": { "en": "IP Address" },
+          "value": "192.168.1.130",
+          "hint": { "en": "The local IP address of your Fresh-R Compac unit" }
+        },
+        {
+          "id": "poll_interval",
+          "type": "number",
+          "label": { "en": "Poll Interval (seconds)" },
+          "value": 30,
+          "min": 10,
+          "max": 300,
+          "hint": { "en": "How often to fetch data from the device (10–300 seconds)" }
+        }
+      ],
+      "pair": [
+        {
+          "id": "start"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
+  ]
+}

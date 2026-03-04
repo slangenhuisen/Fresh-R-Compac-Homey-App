@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #1e6fbd;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .error {
+        color: red;
+        margin-top: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="ip">IP Address</label>
+    <input type="text" id="ip" placeholder="192.168.1.130" />
+    <button id="btn" onclick="connect()">Connect</button>
+    <p class="error" id="error"></p>
+
+    <script>
+      function onShowView() {
+        document.getElementById('ip').focus();
+      }
+
+      async function connect() {
+        const ip = document.getElementById('ip').value.trim();
+        const btn = document.getElementById('btn');
+        const errorEl = document.getElementById('error');
+
+        if (!ip) {
+          errorEl.textContent = 'Please enter an IP address.';
+          errorEl.style.display = 'block';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Connecting…';
+        errorEl.style.display = 'none';
+
+        try {
+          await Homey.emit('connect', { ip });
+          await Homey.nextView();
+        } catch (err) {
+          errorEl.textContent = err.message || 'Could not connect to device.';
+          errorEl.style.display = 'block';
+          btn.disabled = false;
+          btn.textContent = 'Connect';
+        }
+      }
+
+      document.getElementById('ip').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') connect();
+      });
+    </script>
+  </body>
+</html>
