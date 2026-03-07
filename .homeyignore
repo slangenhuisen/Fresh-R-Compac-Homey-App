@@ -1,0 +1,4 @@
+node_modules/
+.homeybuild/
+.claude/
+.git/
