@@ -95,12 +95,23 @@ class FreshRDevice extends Homey.Device {
     set('ventilation_mode', String(int(IDX.MODE)));
 
     // Temperatures (÷10)
-    set('measure_temperature_t1',      int(IDX.T1)       / 10);
+    const T1 = int(IDX.T1) / 10;  // extract air from room
+    const T3 = int(IDX.T3) / 10;  // outdoor air entering unit
+    const T4 = int(IDX.T4) / 10;  // supply air into room
+    set('measure_temperature_t1',      T1);
     set('measure_temperature_t2',      int(IDX.T2)       / 10);
-    set('measure_temperature_t3',      int(IDX.T3)       / 10);
-    set('measure_temperature_t4',      int(IDX.T4)       / 10);
+    set('measure_temperature_t3',      T3);
+    set('measure_temperature_t4',      T4);
     set('measure_temperature_supply',  int(IDX.T_SUPPLY) / 10);
     set('measure_dewpoint',            int(IDX.DEWPOINT) / 10);
+
+    // Heat recovery efficiency: η = (T4 - T3) / (T1 - T3) × 100
+    // η = (supply - outdoor) / (extract - outdoor) × 100
+    const denominator = T1 - T3;
+    if (Math.abs(denominator) > 0.01) {
+      const efficiency = ((T4 - T3) / denominator) * 100;
+      set('measure_efficiency', Math.round(efficiency * 10) / 10);
+    }
 
     // CO2 (ppm, direct)
     set('measure_co2', int(IDX.CO2));

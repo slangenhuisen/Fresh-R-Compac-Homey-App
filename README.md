@@ -8,6 +8,7 @@ Monitor your [Fresh-R Compac](https://www.fresh-r.com) ventilation unit from Hom
 
 | Capability | Description | Unit |
 |---|---|---|
+| Heat Recovery Efficiency | Calculated efficiency: (T4−T3) / (T1−T3) × 100 | % |
 | Ventilation Mode | Current operating mode (Auto, Level 1–3, Off) | — |
 | CO₂ | Carbon dioxide level | ppm |
 | Humidity | Supply air relative humidity | % |

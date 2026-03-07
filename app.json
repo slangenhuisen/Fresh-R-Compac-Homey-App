@@ -22,6 +22,17 @@
     "name": "Sven Langenhuisen"
   },
   "capabilities": {
+    "measure_efficiency": {
+      "type": "number",
+      "title": { "en": "Heat Recovery Efficiency" },
+      "icon": "/assets/capability_icons/efficiency.svg",
+      "units": { "en": "%" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
     "ventilation_mode": {
       "type": "enum",
       "title": { "en": "Ventilation Mode" },
@@ -208,6 +219,7 @@
       "icon": "/drivers/freshr-compac/assets/icon.svg",
       "class": "fan",
       "capabilities": [
+        "measure_efficiency",
         "ventilation_mode",
         "measure_co2",
         "measure_humidity",
