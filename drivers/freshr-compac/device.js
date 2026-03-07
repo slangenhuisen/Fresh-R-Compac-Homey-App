@@ -30,6 +30,12 @@ class FreshRDevice extends Homey.Device {
   async onInit() {
     this.log(`Fresh-R Compac device initialized: ${this.getName()}`);
     this._pollInterval = null;
+
+    // Ensure capabilities added after initial pairing are present on existing devices
+    if (!this.hasCapability('measure_efficiency')) {
+      await this.addCapability('measure_efficiency');
+    }
+
     this._startPolling();
   }
 
