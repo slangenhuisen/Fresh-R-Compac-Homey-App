@@ -38,7 +38,7 @@
     },
     "measure_temperature_t1": {
       "type": "number",
-      "title": { "en": "Temperature T1 (indoor)" },
+      "title": { "en": "Extract Air Temperature (T1)" },
       "icon": "/assets/capability_icons/thermometer.svg",
       "units": { "en": "°C" },
       "decimals": 1,
@@ -49,7 +49,7 @@
     },
     "measure_temperature_t2": {
       "type": "number",
-      "title": { "en": "Temperature T2 (exhaust)" },
+      "title": { "en": "Exhaust Air Temperature (T2)" },
       "icon": "/assets/capability_icons/thermometer.svg",
       "units": { "en": "°C" },
       "decimals": 1,
@@ -60,7 +60,7 @@
     },
     "measure_temperature_t3": {
       "type": "number",
-      "title": { "en": "Temperature T3" },
+      "title": { "en": "Outdoor Air Temperature (T3)" },
       "icon": "/assets/capability_icons/thermometer.svg",
       "units": { "en": "°C" },
       "decimals": 1,
@@ -71,7 +71,7 @@
     },
     "measure_temperature_t4": {
       "type": "number",
-      "title": { "en": "Temperature T4 (outdoor)" },
+      "title": { "en": "Supply Air Temperature (T4)" },
       "icon": "/assets/capability_icons/thermometer.svg",
       "units": { "en": "°C" },
       "decimals": 1,
@@ -82,7 +82,7 @@
     },
     "measure_temperature_supply": {
       "type": "number",
-      "title": { "en": "Supply Air Temperature" },
+      "title": { "en": "Room Temperature" },
       "icon": "/assets/capability_icons/thermometer.svg",
       "units": { "en": "°C" },
       "decimals": 1,

@@ -11,11 +11,11 @@ Monitor your [Fresh-R Compac](https://www.fresh-r.com) ventilation unit from Hom
 | Ventilation Mode | Current operating mode (Auto, Level 1–3, Off) | — |
 | CO₂ | Carbon dioxide level | ppm |
 | Humidity | Supply air relative humidity | % |
-| Temperature T1 | Indoor temperature | °C |
-| Temperature T2 | Exhaust air temperature | °C |
-| Temperature T3 | Temperature sensor 3 | °C |
-| Temperature T4 | Outdoor temperature | °C |
-| Supply Air Temperature | Temperature of supply air | °C |
+| Extract Air Temperature (T1) | Air extracted from the room | °C |
+| Exhaust Air Temperature (T2) | Air leaving the unit to outside | °C |
+| Outdoor Air Temperature (T3) | Fresh outdoor air entering the unit | °C |
+| Supply Air Temperature (T4) | Filtered air supplied into the room | °C |
+| Room Temperature | Temperature measured at the unit | °C |
 | Dew Point | Dew point of supply air | °C |
 | Fan 1 Speed (PWM) | Fan 1 duty cycle | % |
 | Fan 2 Speed (PWM) | Fan 2 duty cycle | % |
@@ -138,13 +138,13 @@ The Fresh-R Compac exposes a local HTTP endpoint at `http://<ip>/diagnostics` th
 | Index | Raw value example | Capability | Conversion |
 |---|---|---|---|
 | 0 | `8` | Ventilation Mode | `8` = Auto |
-| 1 | `208` | Temperature T1 | ÷ 10 → 20.8 °C |
-| 2 | `207` | Temperature T2 | ÷ 10 → 20.7 °C |
-| 3 | `208` | Temperature T3 | ÷ 10 → 20.8 °C |
-| 4 | `205` | Temperature T4 | ÷ 10 → 20.5 °C |
+| 1 | `208` | Extract Air Temp (T1) | ÷ 10 → 20.8 °C |
+| 2 | `207` | Exhaust Air Temp (T2) | ÷ 10 → 20.7 °C |
+| 3 | `208` | Outdoor Air Temp (T3) | ÷ 10 → 20.8 °C |
+| 4 | `205` | Supply Air Temp (T4) | ÷ 10 → 20.5 °C |
 | 5 | `2` | Balance Temp | direct → 2 °C |
 | 6 | `856` | CO₂ | direct → 856 ppm |
-| 7 | `212` | Supply Air Temp | ÷ 10 → 21.2 °C |
+| 7 | `212` | Room Temperature | ÷ 10 → 21.2 °C |
 | 8 | `5006` | Humidity | ÷ 100 → 50.06 % |
 | 9 | `97` | Dew Point | ÷ 10 → 9.7 °C |
 | 10 | `115` | Fan 1 PWM | ÷ 10 → 11.5 % |

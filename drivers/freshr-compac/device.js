@@ -6,13 +6,13 @@ const Homey = require('homey');
 // Source: /diagnostics endpoint reverse-engineered from Fresh-R Compac web interface
 const IDX = {
   MODE:             0,   // 8 = auto
-  T1:               1,   // Indoor temperature ÷10 °C
-  T2:               2,   // Exhaust temperature ÷10 °C
-  T3:               3,   // Temperature T3 ÷10 °C
-  T4:               4,   // Outdoor temperature ÷10 °C
+  T1:               1,   // Extract air from room ÷10 °C
+  T2:               2,   // Exhaust air leaving unit ÷10 °C
+  T3:               3,   // Outdoor air entering unit ÷10 °C
+  T4:               4,   // Supply air into room ÷10 °C
   T_BAL:            5,   // Balance temperature (direct) °C
   CO2:              6,   // CO2 ppm (direct)
-  T_SUPPLY:         7,   // Supply air temperature ÷10 °C
+  T_SUPPLY:         7,   // Room temperature ÷10 °C
   HUM_SUPPLY:       8,   // Supply air humidity ÷100 %
   DEWPOINT:         9,   // Dew point ÷10 °C
   FAN1_PWM:        10,   // Fan 1 PWM ÷10 %
