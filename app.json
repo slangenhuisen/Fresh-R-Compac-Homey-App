@@ -1,6 +1,6 @@
 {
   "id": "com.freshr.compac",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -150,6 +150,17 @@
       "insights": true,
       "uiComponent": "sensor"
     },
+    "measure_flow": {
+      "type": "number",
+      "title": { "en": "Airflow" },
+      "icon": "/assets/capability_icons/airflow.svg",
+      "units": { "en": "m³/h" },
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
     "measure_heater_temp_in": {
       "type": "number",
       "title": { "en": "Heater Temperature In" },
@@ -210,6 +221,7 @@
         "measure_fan2_rpm",
         "measure_fan1_pwm",
         "measure_fan2_pwm",
+        "measure_flow",
         "measure_heater_temp_in",
         "measure_heater_temp_out",
         "measure_heater_power"

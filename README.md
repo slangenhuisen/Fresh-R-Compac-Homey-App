@@ -21,6 +21,7 @@ Monitor your [Fresh-R Compac](https://www.fresh-r.com) ventilation unit from Hom
 | Fan 2 Speed (PWM) | Fan 2 duty cycle | % |
 | Fan 1 Speed (RPM) | Fan 1 rotational speed | rpm |
 | Fan 2 Speed (RPM) | Fan 2 rotational speed | rpm |
+| Airflow | Calibrated airflow | m³/h |
 | Heater Temperature In | Inlet temperature of the heater | °C |
 | Heater Temperature Out | Outlet temperature of the heater | °C |
 | Heater Power | Heater power consumption | W |
@@ -150,7 +151,7 @@ The Fresh-R Compac exposes a local HTTP endpoint at `http://<ip>/diagnostics` th
 | 11 | `27` | Fan 2 PWM | ÷ 10 → 2.7 % |
 | 12 | `1259` | Fan 1 RPM | direct → 1259 rpm |
 | 13 | `776` | Fan 2 RPM | direct → 776 rpm |
-| 14 | `1025` | *(unidentified)* | — |
+| 14 | `1025` | Airflow | calibrated → 30.8 m³/h |
 | 15 | `0` | Heater Temp In | direct → 0 °C |
 | 16 | `0` | Heater Temp Out | direct → 0 °C |
 | 17 | `0` | Heater Power | direct → 0 W |

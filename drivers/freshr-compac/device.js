@@ -19,6 +19,7 @@ const IDX = {
   FAN2_PWM:        11,   // Fan 2 PWM ÷10 %
   FAN1_RPM:        12,   // Fan 1 RPM (direct)
   FAN2_RPM:        13,   // Fan 2 RPM (direct)
+  FLOW:            14,   // Airflow raw value — calibrated to m³/h
   HTR_TEMP_IN:     15,   // Heater temp in (direct) °C
   HTR_TEMP_OUT:    16,   // Heater temp out (direct) °C
   HTR_POWER:       17,   // Heater power W (direct)
@@ -112,6 +113,17 @@ class FreshRDevice extends Homey.Device {
     set('measure_fan2_pwm', int(IDX.FAN2_PWM) / 10);
     set('measure_fan1_rpm', int(IDX.FAN1_RPM));
     set('measure_fan2_rpm', int(IDX.FAN2_RPM));
+
+    // Airflow (calibrated from raw value)
+    const FLOW_CALIBRATION_THRESHOLD = 200;
+    const FLOW_CALIBRATION_OFFSET    = 700;
+    const FLOW_CALIBRATION_DIVISOR   = 30;
+    const FLOW_CALIBRATION_BASE      = 20;
+    const rawFlow = int(IDX.FLOW);
+    if (rawFlow > FLOW_CALIBRATION_THRESHOLD) {
+      const calibratedFlow = (rawFlow - FLOW_CALIBRATION_OFFSET) / FLOW_CALIBRATION_DIVISOR + FLOW_CALIBRATION_BASE;
+      set('measure_flow', Math.round(calibratedFlow * 10) / 10);
+    }
 
     // Heater
     set('measure_heater_temp_in',  int(IDX.HTR_TEMP_IN));
