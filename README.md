@@ -21,7 +21,6 @@ Monitor your [Fresh-R Compac](https://www.fresh-r.com) ventilation unit from Hom
 | Fan 2 Speed (PWM) | Fan 2 duty cycle | % |
 | Fan 1 Speed (RPM) | Fan 1 rotational speed | rpm |
 | Fan 2 Speed (RPM) | Fan 2 rotational speed | rpm |
-| Airflow | Volume of air refreshed | m³/h |
 | Heater Temperature In | Inlet temperature of the heater | °C |
 | Heater Temperature Out | Outlet temperature of the heater | °C |
 | Heater Power | Heater power consumption | W |
@@ -114,7 +113,6 @@ homey app install
 1. Open the **Homey app** on your phone or tablet
 2. Go to **Devices** → **+** → search for **Fresh-R Compac**
 3. Enter the **IP address** of your Fresh-R unit (e.g. `192.168.1.130`)
-   - Leave the password field empty (no authentication needed)
 4. Homey will connect to the device and add it
 
 ---
@@ -152,10 +150,61 @@ The Fresh-R Compac exposes a local HTTP endpoint at `http://<ip>/diagnostics` th
 | 11 | `27` | Fan 2 PWM | ÷ 10 → 2.7 % |
 | 12 | `1259` | Fan 1 RPM | direct → 1259 rpm |
 | 13 | `776` | Fan 2 RPM | direct → 776 rpm |
-| 14 | `1025` | Airflow | direct → 1025 m³/h |
+| 14 | `1025` | *(unidentified)* | — |
 | 15 | `0` | Heater Temp In | direct → 0 °C |
 | 16 | `0` | Heater Temp Out | direct → 0 °C |
 | 17 | `0` | Heater Power | direct → 0 W |
+
+---
+
+## Releasing a new version
+
+### 1. Bump the version number
+
+Edit `app.json` and increment `"version"` following [semver](https://semver.org):
+
+| Change type | Example | When to use |
+|---|---|---|
+| Patch `x.x.1` | `1.0.0` → `1.0.1` | Bug fix, no new capabilities |
+| Minor `x.1.x` | `1.0.1` → `1.1.0` | New capability or feature, backwards compatible |
+| Major `1.x.x` | `1.1.0` → `2.0.0` | Breaking change (e.g. removed capability) |
+
+### 2. Validate
+
+```bash
+homey app validate
+```
+
+### 3. Install over the existing version
+
+```bash
+homey app install
+```
+
+Homey will overwrite the installed app in-place. Your paired devices, flows, and settings are preserved as long as:
+- The `"id"` in `app.json` has not changed (`com.freshr.compac`)
+- No capabilities were removed (removing a capability that a flow uses will break that flow)
+- The driver `"id"` has not changed (`freshr-compac`)
+
+> **If you added a new capability**, existing paired devices will **not** automatically get it. You need to re-pair the device, or add the capability programmatically in `device.js` using `this.addCapability('capability_name')` inside `onInit`.
+
+### 4. Commit and push to GitHub
+
+```bash
+git add app.json           # always include the version bump
+git add -p                 # review and stage other changed files
+git commit -m "v1.1.0: <short description of changes>"
+git push
+```
+
+### 5. Tag the release (optional but recommended)
+
+```bash
+git tag v1.1.0
+git push origin v1.1.0
+```
+
+Then create a GitHub release from the tag at [github.com/slangenhuisen/Fresh-R-Compac-Homey-App/releases](https://github.com/slangenhuisen/Fresh-R-Compac-Homey-App/releases).
 
 ---
 
